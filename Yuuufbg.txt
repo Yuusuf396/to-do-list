@@ -1,1 +1,0 @@
-task 2: C:/Users/ADEBAYO/AppData/Local/Programs/Python/Python312/python.exe c:/Users/ADEBAYO/Desktop/to-do-list-python/test.py . /n
