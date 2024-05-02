@@ -24,18 +24,23 @@ if len(name)<=1:
     name=input("Input Your Name: ")
 loop_checker=True
 task_number=0
+list_tasks_importance=['high','medium','low']
 while loop_checker:
+    task_details=[]
     task_number+=1
     text=input(f'Input task {task_number}: ')   
     if len(text)>=1:
-        print(f"{name}'s Tasks:")
         
         
         
+        task_importance=input("Enter task's importance (between :*'high','medium','low'*): ")
         day = int(input("tasks can only made for this month, enter the day: "))
         hour = int(input("Enter the hour: "))
         date = datetime.datetime(year=year, month=month, day=day, hour=hour)
+        task_details.append(f"{str(text)},deadline:{date}")
         text_list.append(f"{str(text)},deadline:{date}")
+        print(f"'{text}' was added succesfully")
+        print(f"{name}'s Tasks:")
         print(text_list)
         
         # File writing
@@ -43,7 +48,7 @@ while loop_checker:
         # f.write(f"task {task_number}: {text}.\n")
         # f.close()
 
-        print(f"'{text}' was added succesfully")
+        
         check=input("Do You want to continue? Y/N (Click 'y' or 'Y' to continue): ")
         if not  check.upper()=="Y":
             loop_checker=False
