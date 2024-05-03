@@ -1,12 +1,13 @@
 
 import datetime
-from win10toast import ToastNotifier
-import time
+from win11toast import toast
+
+# toast('Hello Python🐍') 
 datetime_time=datetime.datetime.now()
 year=datetime_time.year
 month=datetime_time.month
 
-toaster = ToastNotifier()
+ 
 
 # toaster.show_toast("Example two",
 # "This notification is in it's own thread!",
@@ -57,18 +58,19 @@ while loop_checker:
         hour = int(input("Enter the hour: "))
         date = datetime.datetime(year=year, month=month, day=day, hour=hour)
         task_list.append([f"{str(text)},deadline:{date}",task_importance])
-        toaster.show_toast(f"Task {task_number}",f"{text}",icon_path=None,duration=5,threaded=True)
+        toast(f"Task {task_number}, deadline:{date}, Priority:{task_importance}",f"{text}",duration='short', button='Dismiss')
         
         # text_list.append(f"{str(text)},deadline:{date}")
         print(f"'{text}' was added succesfully")
         task_list = sort_tasks(task_list)
-        while toaster.notification_active(): time.sleep(0.1)
+        
         print(f"{name}'s Tasks:")
         print(task_list)
         
         # File writing
         # f= open(f"{name}.txt", "a")
-        # f.write(f"task {task_number}: {text}.\n")
+        # # f.write(f"task {task_number}: {text}.\n")
+        # f.write(f"{str(text)},deadline:{date},{task_importance} \n")
         # f.close()
 
         
@@ -77,8 +79,10 @@ while loop_checker:
             loop_checker=False
         
             
-
-    
+f= open(f"{name}.txt", "a")
+for  i in task_list:
+     f.write(f"task {i[0]}: {i[1]}.\n")
+       
    
 
     
