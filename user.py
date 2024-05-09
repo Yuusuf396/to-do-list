@@ -6,5 +6,4 @@ class User:
     def get_name(self):
         return self.name
     
-class Task(User):
-    pass
+ 
