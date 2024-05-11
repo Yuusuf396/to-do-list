@@ -24,10 +24,32 @@ title_label.grid(row=0,column=2)
 title_combobox.grid(row=1,column=2  )
 
 
+age_label =tkinter.Label(user_info_frame,text="Age")
+age_spinbox=tkinter.Spinbox(user_info_frame)
+age_label.grid(row=2,column=0)
+age_spinbox.grid(row=3,column=0)
+window.mainloop()
+nationality_label=tkinter.Label(user_info_frame,text="Nationality")
+nationality_combobox=ttk.Combobox(user_info_frame,values=["Nigeria","American","Canadian","Itakian"])
+
+nationality_label.grid(row=2,column=1)
+nationality_combobox.grid(row=3,column=1)
+for widget in user_info_frame.winfo_children():
+    widget.grid_configure(padx=10,pady=5)
 
 
+# Saving Course Info
+courses_frame=tkinter.LabelFrame(frame)
+courses_frame.grid(row=1,column=0,sticky="news",padx=20,pady=20)
 
+registered_label=tkinter.Label(courses_frame,text="Registeration Status")
+registered_check=tkinter.Checkbutton(courses_frame,text="Currently Registered")
+registered_label.grid(row=0,column=0)
+registered_check.grid(row=1,column=0)
+window.mainloop()
 # from tkinter import *
+ 
+
 # from tkinter import ttk
 # root = Tk()
 # frm = ttk.Frame(root, padding=10)
